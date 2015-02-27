@@ -1,8 +1,8 @@
 package matrixlib
 
 import (
-// "fmt"
-// "math"
+	"fmt"
+	// "math"
 )
 
 type Matrix interface {
@@ -78,6 +78,12 @@ func Mul(a [][]int, b [][]int) [][]int {
 	}
 	panic("Bad array dimension")
 
+}
+
+func PrintMatrix(matrix [][]int) {
+	for _, row := range matrix {
+		fmt.Println(row)
+	}
 }
 
 func (m *DenseMatrix) Add(a *DenseMatrix) (ret *DenseMatrix) {
