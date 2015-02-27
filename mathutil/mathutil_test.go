@@ -1,4 +1,4 @@
-package eulerutil
+package mathutil
 
 import "testing"
 
