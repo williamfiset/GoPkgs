@@ -1,8 +1,8 @@
 package matrixlib
 
 import (
-	"fmt"
-	// "math"
+// "fmt"
+// "math"
 )
 
 type Matrix interface {
@@ -42,62 +42,6 @@ func NewMatrixDim(rows uint, cols uint) *DenseMatrix {
 	return nil
 }
 
-/*
-
-	[1, 2] [1 3 0]  [a b e]
-	[3, 1] [0 1 0]  [c d f]
-
-	 2x2	2x3
-
-
-
-*/
-
-/*
-func (a *DenseMatrix) Mul(b *DenseMatrix) *DenseMatrix {
-
-	// Valid Multiplication
-	if a.cols == b.rows {
-
-		var newRowLen, newColLen uint = a.rows, b.cols
-		fmt.Println(newRowLen, newColLen)
-		ret := NewMatrixDim(newRowLen, newColLen)
-		// ret := &DenseMatrix{nil, 1, 1}
-		fmt.Println("WTF")
-		return nil
-		fmt.Println("WTF")
-
-		fmt.Printf("R: %d, C: %d\n", newRowLen, newColLen)
-
-		for r := uint(0); r < b.rows; r++ {
-			for c := uint(0); c < b.cols; c++ {
-				fmt.Println("HERE")
-				k := 0
-				for _, e := range a.matrix[r] {
-					ret.matrix[r][c] += e * b.matrix[r][k] // Mul
-					k++
-				}
-				// fmt.Println("")
-
-			}
-		}
-		fmt.Println(ret.matrix)
-		// for i := uint(0); i < newRowLen; i++ {
-		// 	fmt.Println(row)
-		// 	for j := 0; j < len(a.matrix[0]); j++ {
-		// 		fmt.Println(row[i], a.matrix[i][j])
-		// 		ret.matrix[j][i] += row[i] * a.matrix[i][j]
-		// 	}
-		// }
-
-		return &ret
-	}
-
-	return nil
-}
-
-*/
-
 func NewMatrixEmpty(r int, c int, fill int) [][]int {
 
 	newMatrix := make([][]int, r)
@@ -113,11 +57,7 @@ func NewMatrixEmpty(r int, c int, fill int) [][]int {
 
 }
 
-// [1, 2] [1 3 0]  [a b e]
-// [3, 1] [0 1 0]  [c d f]
-
-//  2x2	2x3
-
+// Multiplies two matrices together
 func Mul(a [][]int, b [][]int) [][]int {
 
 	var aRows, aCols = len(a), len(a[0])
@@ -134,9 +74,6 @@ func Mul(a [][]int, b [][]int) [][]int {
 				}
 			}
 		}
-
-		fmt.Println(newMatrix)
-
 		return newMatrix
 	}
 	panic("Bad array dimension")
