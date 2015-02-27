@@ -125,13 +125,19 @@ func Mul(a [][]int, b [][]int) [][]int {
 		var rows, cols = len(a), len(b[0])
 		newMatrix := NewMatrixEmpty(rows, cols, 0)
 
-		for _, row := range a {
-			for r, e := range row {
-				for c := 0; c < cols; c++ {
-					fmt.Println(e, "*", b[r][c])
-					newMatrix[r][c] += e * b[r][c]
+		for R, row := range a {
+			for r := 0; r < rows; r++ {
+				for C := 0; C < cols; C++ {
+
+					e := row[r]
+
+					fmt.Println(e, "*", b[r][C], "---", b[R][C])
+					newMatrix[R][C] += e * b[r][C]
 				}
+
 			}
+			fmt.Println("")
+			// }
 		}
 		fmt.Println(newMatrix)
 
