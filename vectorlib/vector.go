@@ -10,6 +10,7 @@ func NewVector(length int, fill int) []int {
 
 }
 
+// Remember, Dot Product Returns a Scaler!
 func DotProduct(a []int, b []int) int {
 
 	if len(a) == len(b) {
