@@ -120,25 +120,21 @@ func NewMatrixEmpty(r int, c int, fill int) [][]int {
 
 func Mul(a [][]int, b [][]int) [][]int {
 
-	if a_col, b_row := len(a[0]), len(b); a_col == b_row {
+	var aRows, aCols = len(a), len(a[0])
+	var bRows, bCols = len(b), len(b[0])
 
-		var rows, cols = len(a), len(b[0])
-		newMatrix := NewMatrixEmpty(rows, cols, 0)
+	if aCols == bRows {
 
-		for R, row := range a {
-			for r := 0; r < rows; r++ {
-				for C := 0; C < cols; C++ {
+		newMatrix := NewMatrixEmpty(aRows, bCols, 0)
 
-					e := row[r]
-
-					fmt.Println(e, "*", b[r][C], "---", b[R][C])
-					newMatrix[R][C] += e * b[r][C]
+		for r := 0; r < aRows; r++ {
+			for c := 0; c < bCols; c++ {
+				for k := 0; k < aCols; k++ {
+					newMatrix[r][c] += a[r][k] * b[k][c]
 				}
-
 			}
-			fmt.Println("")
-			// }
 		}
+
 		fmt.Println(newMatrix)
 
 		return newMatrix

@@ -65,8 +65,8 @@ func Test_Mul(t *testing.T) {
 	})
 
 	expected := [][]int{
-		{4, 12, 0},
-		{0, 3, 0},
+		{1, 5, 0},
+		{3, 10, 0},
 	}
 	expected2 := [][]int{
 		{7, 4},
@@ -76,7 +76,7 @@ func Test_Mul(t *testing.T) {
 	if !reflect.DeepEqual(expected, Mul(x.matrix, y.matrix)) {
 		t.Error("Multiplication error")
 	}
-	fmt.Println("BEFORE:", x.matrix)
+	// fmt.Println("BEFORE:", x.matrix)
 	if !reflect.DeepEqual(expected2, Mul(x.matrix, x.matrix)) {
 		t.Error("Multiplication error")
 	}
